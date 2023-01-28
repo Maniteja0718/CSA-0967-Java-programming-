@@ -1,0 +1,28 @@
+import java.util.Scanner;
+class Average {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num, posCount = 0, negCount = 0;
+        double posSum = 0.0, negSum = 0.0;
+
+        System.out.println("Enter numbers (enter -1 to stop): ");
+        num = scanner.nextInt();
+
+        while (num != -1) {
+            if (num > 0) {
+                posCount++;
+                posSum += num;
+            } else if (num < 0) {
+                negCount++;
+                negSum += num;
+            }
+            num = scanner.nextInt();
+        }
+
+        double posAvg = posSum / posCount;
+        double negAvg = negSum / negCount;
+
+        System.out.println("Average of positive numbers: " + posAvg);
+        System.out.println("Average of negative numbers: " + negAvg);
+    }
+}
