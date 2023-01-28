@@ -1,0 +1,46 @@
+import java.util.Scanner;
+class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Enter 1 to check for a string or 2 to check for a number: ");
+    int choice = scanner.nextInt();
+    switch (choice) {
+        case 1:
+            System.out.print("Enter a string: ");
+            String str = scanner.next();
+            if (isPalindrome(str)) {
+                System.out.println("The string is a palindrome.");
+            } else {
+                System.out.println("The string is not a palindrome.");
+            }
+            break;
+        case 2:
+            System.out.print("Enter a number: ");
+            int num = scanner.nextInt();
+            if (isPalindrome(num)) {
+                System.out.println("The number is a palindrome.");
+            } else {
+                System.out.println("The number is not a palindrome.");
+            }
+            break;
+        default:
+            System.out.println("Invalid choice. Please enter 1 or 2.");
+    }
+    scanner.close();
+  }
+
+  public static boolean isPalindrome(String str) {
+    return str.equals(new StringBuilder(str).reverse().toString());
+  }
+
+  public static boolean isPalindrome(int num) {
+    int n = num;
+    int rev = 0;
+    while (n > 0) {
+      int dig = n % 10;
+      rev = rev * 10 + dig;
+      n = n / 10;
+    }
+    return num == rev;
+  }
+}
